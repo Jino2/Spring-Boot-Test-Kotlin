@@ -13,9 +13,9 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint-idea") version "10.3.0"
 
     val kotlinVersion = "1.6.21"
-    kotlin("jvm") version "1.6.21"	// Kotlin 으로 작성된 프로젝트의 컴파일 및 다른 task 를 위한 플러그인
-    kotlin("plugin.spring") version "1.6.21"
-    kotlin("plugin.jpa") version "1.6.21" // // Entity NoArgsConstructor 어노테이션이 없어도 되게 해줌
+    kotlin("jvm") version kotlinVersion    // Kotlin 으로 작성된 프로젝트의 컴파일 및 다른 task 를 위한 플러그인
+    kotlin("plugin.spring") version kotlinVersion
+    kotlin("plugin.jpa") version kotlinVersion // // Entity NoArgsConstructor 어노테이션이 없어도 되게 해줌
     kotlin("kapt") version kotlinVersion
 }
 
@@ -36,7 +36,9 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("junit:junit:4.13.1")
+
+    testImplementation("org.junit.platform:junit-platform-launcher:1.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
 
     runtimeOnly("com.h2database:h2")
 
